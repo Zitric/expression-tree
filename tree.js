@@ -10,19 +10,15 @@ const Node = (operator, value, left, right) => {
     !operator
       ? value
       : eval(
-          left.result() +
+          left.getResult() +
             (normalizeOperator[operator] || operator) +
-            right.result()
+            right.getResult()
         );
 
   const toString = () =>
     !operator ? value : `(${left.toString()} ${operator} ${right.toString()})`;
 
   return {
-    operator,
-    value,
-    left,
-    right,
     getResult,
     toString,
   };
